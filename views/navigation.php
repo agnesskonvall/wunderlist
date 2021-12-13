@@ -17,8 +17,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="/login.php">Login</a>
             </li>
-        <?php
-        endif ?>
+        <?php endif ?>
 
     </ul>
 </nav>
