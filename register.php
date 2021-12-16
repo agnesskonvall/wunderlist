@@ -21,14 +21,14 @@
             <input class="form-control" type="password" name="password" id="password" required>
             <small class="form-text">Please provide the wanted password (passphrase).</small>
         </div>
-        <form method="post" enctype="multipart/form-data">
+        <div class="mb-3" enctype="multipart/form-data">
             <div>
                 <label for="image">Choose profile picture</label>
                 <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png">
             </div>
-        </form>
+    </form>
 
-        <button type="submit" class="btn btn-primary">Register</button>
+    <button type="submit" class="btn btn-primary">Register</button>
     </form>
 </article>
 
