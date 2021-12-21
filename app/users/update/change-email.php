@@ -5,7 +5,8 @@ declare(strict_types=1);
 require __DIR__ . '/../autoload.php';
 
 if (isset($_POST['email'])) {
-    $email = trim($_POST['email']);
+    $trimmed_email = trim($_POST['email']);
+    $email = filter_var($trimmed_email, FILTER_SANITIZE_EMAIL);
     $user_id = $_SESSION['user']['id'];
 
     //check if email address already exists in database:

@@ -6,7 +6,8 @@ require __DIR__ . '/../autoload.php';
 
 if (isset($_POST['user_name'], $_POST['email'], $_POST['password'])) {
     $user_name = trim($_POST['user_name']);
-    $email = trim($_POST['email']);
+    $trimmed_email = trim($_POST['email']);
+    $email = filter_var($trimmed_email, FILTER_SANITIZE_EMAIL);
     $hashed_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
     //check if email address already exists in database:
@@ -23,8 +24,8 @@ if (isset($_POST['user_name'], $_POST['email'], $_POST['password'])) {
     $statement = $database->prepare('SELECT user_name FROM users WHERE user_name = :user_name');
     $statement->bindParam(':user_name', $user_name, PDO::PARAM_STR);
     $statement->execute();
-    $compareUsername = $statement->fetch(PDO::FETCH_ASSOC);
-    if ($compareUsername !== false) {
+    $checkUsername = $statement->fetch(PDO::FETCH_ASSOC);
+    if ($checkUsername !== false) {
         $_SESSION['errors'][] = "This username already exist, try another one.";
         redirect('/register.php');
     }
