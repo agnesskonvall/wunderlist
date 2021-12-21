@@ -17,6 +17,9 @@ if (isset($_POST['email'], $_POST['username'], $_POST['password'], $_FILES['imag
     $statement->bindParam(':user_name', $username, PDO::PARAM_STR);
     $statement->bindParam(':email', $email, PDO::PARAM_STR);
     $statement->bindParam(':password', $password, PDO::PARAM_STR);
+    $statement->bindParam(':image_url', $image, PDO::PARAM_STR);
+
+
 
     /* här vill man ha en ifsats som kollar om mailadressen och username redan finns*/
     $statement->execute();

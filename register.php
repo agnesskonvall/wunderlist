@@ -8,7 +8,7 @@
         <div class="mb-3">
             <label for="username">Username</label>
             <input class="form-control" type="username" name="username" id="username" placeholder="username" required>
-            <small class="form-text">Please provide your wanted username .</small>
+            <small class="form-text">Please provide your wanted username.</small>
         </div>
         <div class="mb-3">
             <label for="email">Email</label>
@@ -19,7 +19,7 @@
         <div class="mb-3">
             <label for="password">Password</label>
             <input class="form-control" type="password" name="password" id="password" required>
-            <small class="form-text">Please provide the wanted password (passphrase).</small>
+            <small class="form-text">Please provide your wanted password (passphrase).</small>
         </div>
         <div class="mb-3" enctype="multipart/form-data">
             <div>
