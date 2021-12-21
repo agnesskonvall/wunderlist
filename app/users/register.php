@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-if (isset($_POST['email'], $_POST['username'], $_POST['password'], $_FILES['image'])) {
+if (isset($_POST['email'], $_POST['username'], $_POST['password'])) {
     $email = trim($_POST['email']);
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $username = trim($_POST['username']);
-    $i = 0;
+    /* $i = 0;
     $image = $_FILES['image'][$i];
     $tmp_name = $image['tmp_name'];
     $filetype = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
     $filename = $username . '-image' . "." . $filetype;
 
-    move_uploaded_file($tmp_name, __DIR__ . '../../../../uploads/' . $filename);
+    move_uploaded_file($tmp_name, __DIR__ . '../../../../uploads/' . $filename); */
 
 
     $statement = $database->prepare('INSERT INTO users

@@ -5,10 +5,10 @@
 
 /* upload new image*/
 ?>
-<form action="app/users/register.php" method="post" enctype="multipart/form-data">
+<form action="app/users/avatar/upload.php" method="post" enctype="multipart/form-data">
     <div>
-        <label for="avatar">Choose a PNG image to upload</label>
-        <input type="file" name="avatar" id="avatar" accept=".png/.jpg" required>
+        <label for="image">Choose an image to upload</label>
+        <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" required>
     </div>
 
     <button type="submit">Upload</button>
