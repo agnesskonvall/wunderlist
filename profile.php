@@ -1,6 +1,14 @@
 <?php require __DIR__ . '/app/autoload.php'; ?>
 <?php require __DIR__ . '/views/header.php'; ?>
 
+<?php if (isset($_SESSION['errors'])) : ?>
+    <?php foreach ($_SESSION['errors'] as $error) : ?>
+        <div class="error">
+            <?php echo $error; ?>
+        </div>
+    <?php endforeach; ?>
+    <?php unset($_SESSION['errors']) ?>
+<?php endif; ?>
 
 <form action="app/users/change-email.php" method="post">
 
@@ -9,8 +17,10 @@
         <input class="form-control" type="email" name="email" id="email" placeholder="email" required>
         <small class="form-text">Update your registered email-adress.</small>
     </div>
+    <button type="submit">Change email</button>
+
 </form>
-<form action="app/users/avatar/change-email.php" method="post">
+<form action="app/users/change-password.php" method="post">
 
     <div class="mb-3">
         <label for="password">Password</label>
