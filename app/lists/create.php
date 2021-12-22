@@ -20,4 +20,4 @@ if (isset($_POST['title'])) {
     $statement->execute();
 }
 
-redirect('/');
+redirect('/lists.php');

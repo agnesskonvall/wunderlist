@@ -1,6 +1,9 @@
 <?php require __DIR__ . '/app/autoload.php'; ?>
 <?php require __DIR__ . '/views/header.php'; ?>
 
+<a>Welcome to your profile, <?php echo welcome(); ?></a>
+
+
 <?php if (isset($_SESSION['errors'])) : ?>
     <?php foreach ($_SESSION['errors'] as $error) : ?>
         <div class="error">

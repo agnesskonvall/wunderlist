@@ -18,7 +18,7 @@ if (isset($_POST['email'], $_POST['password'])) {
     if (password_verify($_POST['password'], $user['password'])) {
         $_SESSION['user'] = [
             "id" => $user['id'],
-            "name" => $user['name'],
+            "name" => $user['username'],
             "email" => $user['email'],
         ];
         redirect('/index.php');
