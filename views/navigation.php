@@ -11,6 +11,17 @@
         </li>
         <?php if (isset($_SESSION['user'])) : ?>
             <li class="nav-item">
+                <a class="nav-link" href="/lists.php">Tasks</a>
+                <ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/overview.php">Overview</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/lists.php">Lists</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="/profile.php">Profile</a>
             </li>
             <li class="nav-item">

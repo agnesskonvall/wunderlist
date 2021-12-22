@@ -14,8 +14,8 @@
     <?php endif; ?>
     <form action="app/users/register.php" method="post">
         <div class="mb-3">
-            <label for="user_name">Username</label>
-            <input class="form-control" type="user_name" name="user_name" id="user_name" placeholder="user_name" required>
+            <label for="username">Username</label>
+            <input class="form-control" type="username" name="username" id="username" placeholder="username" required>
             <small class="form-text">Please provide your wanted username.</small>
         </div>
         <div class="mb-3">
