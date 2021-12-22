@@ -9,7 +9,7 @@
         <li class="nav-item">
             <a class="nav-link" href="/about.php">About</a>
         </li>
-        <?php if (isset($_SESSION['user'])) : ?>
+        <?php if (logged_in()) : ?>
             <li class="nav-item">
                 <a class="nav-link" href="/lists.php">Tasks</a>
                 <ul>
