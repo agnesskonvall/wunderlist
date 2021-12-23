@@ -6,18 +6,18 @@ require __DIR__ . '/views/header.php';
 <?php
 $id = $_GET['id'];
 $user_id = $_SESSION['user']['id'];
-
 $lists = fetch_lists($database);
+
 foreach ($lists as $list) :
     if ($list['id'] === $id) : ?>
         <h2> <?= $list['title']; ?> </h2>
     <?php endif ?>
 <?php endforeach ?>
 
-<form action="/app/lists/update.php?id=<?php $_GET['id'] ?>" method="post">
+<form action="/app/lists/update.php?id=<?= $id ?>" method="post">
     <div class="mb-3">
-        <label for="title">Update list-name</label>
-        <input class="form-control" type="text" name="title" id="title" placeholder="title" required>
+        <label for="title"></label>
+        <input class="form-control" type="text" name="title" id="title" placeholder="New title" required>
         <small class="form-text">Update the name for your list.</small>
     </div>
     <button type="submit">Change title</button>
