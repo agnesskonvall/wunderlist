@@ -5,10 +5,17 @@
     <h1>Your lists</h1>
     <?php $lists = fetch_lists($database); ?>
     <ul>
-        <?php $lists = fetch_lists($database);
+        <?php
+        $lists = fetch_lists($database);
         foreach ($lists as $list) : ?>
             <li>
                 <?= $list['title'] ?>
+                <button>
+                    <a href="/individual_list.php?id=<?= $list['id']; ?>">Update </a>
+                </button>
+                <button>
+                    <a href="/app/lists/delete.php?id=<?= $list['id']; ?>">Delete </a>
+                </button>
             </li>
         <?php endforeach ?>
     </ul>
