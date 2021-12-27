@@ -3,7 +3,6 @@
 
 <article>
     <h1>Your lists</h1>
-    <?php $lists = fetch_lists($database); ?>
     <ul>
         <?php
         $lists = fetch_lists($database);
