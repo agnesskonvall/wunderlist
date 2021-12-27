@@ -12,7 +12,7 @@ if (isset($_POST['title'], $_POST['content'], $_POST['deadline'])) {
     $trimmed_content = trim($_POST['content']);
     $content = filter_var($trimmed_content, FILTER_SANITIZE_STRING);
     $deadline_at = $_POST['deadline'];
-    $created_at = date('d-m-Y');
+    $created_at = date('Y-m-d');
 
 
     $statement = $database->prepare('INSERT INTO tasks
@@ -24,8 +24,8 @@ if (isset($_POST['title'], $_POST['content'], $_POST['deadline'])) {
     $statement->bindParam(':title', $title, PDO::PARAM_STR);
     $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
     $statement->bindParam(':content', $content, PDO::PARAM_STR);
-    $statement->bindParam(':deadline_at', $deadline_at, PDO::PARAM_INT);
-    $statement->bindParam(':created_at', $created_at, PDO::PARAM_INT);
+    $statement->bindParam(':deadline_at', $deadline_at, PDO::PARAM_STR);
+    $statement->bindParam(':created_at', $created_at, PDO::PARAM_STR);
 
     $statement->execute();
     redirect('/individual_list.php?id=' . $list_id);

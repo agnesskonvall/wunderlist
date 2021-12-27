@@ -46,7 +46,7 @@ foreach ($lists as $list) :
     </div>
     <div class="mb-3">
         <label for="deadline"></label>
-        <input class="form-control" type="date" name="deadline" id="deadline" maxlength="255" placeholder="Deadline" required>
+        <input type="date" name="deadline" id="deadline" placeholder="Deadline" required>
         <small class="form-text">Add a deadline for your task.</small>
     </div>
 
