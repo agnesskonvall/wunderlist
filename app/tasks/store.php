@@ -4,26 +4,29 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-if (isset($_POST['title'], $_POST['description'], $_POST['date'])) {
+if (isset($_POST['title'], $_POST['content'], $_POST['deadline'])) {
     $list_id = $_GET['id'];
     $user_id = $_SESSION['user']['id'];
     $trimmed_title = trim($_POST['title']);
     $title = filter_var($trimmed_title, FILTER_SANITIZE_STRING);
-    $trimmed_desc = trim($_POST['title']);
-    $desc = filter_var($trimmed_desc, FILTER_SANITIZE_STRING);
-    $deadline = $_POST['date'];
+    $trimmed_content = trim($_POST['content']);
+    $content = filter_var($trimmed_content, FILTER_SANITIZE_STRING);
+    $deadline_at = $_POST['deadline'];
+    $created_at = date('d-m-Y');
 
 
     $statement = $database->prepare('INSERT INTO tasks
-    (title, user_id)
+    (list_id, title, user_id, content, created_at, deadline_at)
     VALUES
-    (:title, :user_id)');
+    (:list_id, :title, :user_id, :content, :created_at, :deadline_at)');
 
+    $statement->bindParam(':list_id', $list_id, PDO::PARAM_INT);
     $statement->bindParam(':title', $title, PDO::PARAM_STR);
     $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $statement->bindParam(':content', $content, PDO::PARAM_STR);
+    $statement->bindParam(':deadline_at', $deadline_at, PDO::PARAM_INT);
+    $statement->bindParam(':created_at', $created_at, PDO::PARAM_INT);
 
     $statement->execute();
-    redirect('/lists.php');
+    redirect('/individual_list.php?id=' . $list_id);
 }
-
-redirect('/lists.php');

@@ -7,10 +7,18 @@ require __DIR__ . '/views/header.php';
 $id = $_GET['id'];
 $user_id = $_SESSION['user']['id'];
 $lists = fetch_lists($database);
+$tasks = fetch_tasks($database);
 
 foreach ($lists as $list) :
     if ($list['id'] === $id) : ?>
         <h2> <?= $list['title']; ?> </h2>
+    <?php endif ?>
+<?php endforeach ?>
+
+<?php foreach ($tasks as $task) :
+    if ($user_id && $list_id = $id) : ?>
+        <h3> <?= $task['title']; ?> </h3>
+        <h3> <?= $task['deadline_at']; ?> </h3>
     <?php endif ?>
 <?php endforeach ?>
 
@@ -32,13 +40,13 @@ foreach ($lists as $list) :
         <small class="form-text">Add a title for your task.</small>
     </div>
     <div class="mb-3">
-        <label for="description"></label>
-        <input class="form-control" type="text" name="description" id="description" maxlength="255" placeholder="Description" required>
+        <label for="content"></label>
+        <input class="form-control" type="text" name="content" id="content" maxlength="255" placeholder="Description" required>
         <small class="form-text">Add a description for your task.</small>
     </div>
     <div class="mb-3">
-        <label for="date"></label>
-        <input class="form-control" type="date" name="date" id="date" maxlength="255" placeholder="Description" required>
+        <label for="deadline"></label>
+        <input class="form-control" type="date" name="deadline" id="deadline" maxlength="255" placeholder="Deadline" required>
         <small class="form-text">Add a deadline for your task.</small>
     </div>
 

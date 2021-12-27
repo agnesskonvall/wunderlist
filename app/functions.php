@@ -35,3 +35,18 @@ function fetch_lists(object $database)
 
     return $lists;
 }
+
+function fetch_tasks(object $database)
+{
+    $user_id = $_SESSION['user']['id'];
+    $list_id = $_GET['id'];
+
+    $statement = $database->prepare("SELECT * from tasks WHERE user_id = :user_id AND list_id = :list_id");
+    $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $statement->bindParam(':list_id', $list_id, PDO::PARAM_INT);
+    $statement->execute();
+
+    $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $tasks;
+}
