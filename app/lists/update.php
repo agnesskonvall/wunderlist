@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 $user_id = $_SESSION['user']['id'];
-$list_id = $_GET['id'];
+$task_id = $_GET['id'];
 
-if (isset($_POST['title'])) {
+if (isset($_POST['title'], $_POST['content'], $_POST['deadline'])) {
     $trimmed_title = trim($_POST['title']);
     $title = filter_var($trimmed_title, FILTER_SANITIZE_STRING);
 
