@@ -17,8 +17,11 @@ foreach ($lists as $list) :
 
 <?php foreach ($tasks as $task) :
     if ($user_id && $list_id = $id) : ?>
-        <h3> <?= $task['title']; ?> </h3>
-        <h3> <?= $task['deadline_at']; ?> </h3>
+        <h5> <?= $task['title']; ?> </h5>
+        <h6>Deadline: <?= $task['deadline_at']; ?> </h6>
+        <button>
+            <a href="/app/tasks/delete.php?id=<?= $task['id']; ?>">Delete </a>
+        </button>
     <?php endif ?>
 <?php endforeach ?>
 
@@ -31,7 +34,7 @@ foreach ($lists as $list) :
     <button type="submit">Change title</button>
 
 </form>
-
+<br> <br>
 <h3>Add task</h3>
 <form action="/app/tasks/store.php?id=<?= $id ?>" method="post">
     <div class="mb-3">
