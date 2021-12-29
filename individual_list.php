@@ -23,7 +23,7 @@ foreach ($lists as $list) :
             <a href="/app/tasks/delete.php?id=<?= $task['id']; ?>">Delete </a>
         </button>
         <button>
-            <a href="/app/tasks/individual_task.php?id=<?= $task['id']; ?>">Update </a>
+            <a href="/individual_task.php?id=<?= $task['id']; ?>">Update </a>
         </button>
     <?php endif ?>
 <?php endforeach ?>

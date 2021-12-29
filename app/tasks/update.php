@@ -19,13 +19,14 @@ if (isset($_POST['title'], $_POST['content'], $_POST['deadline'])) {
     $statement = $database->prepare('UPDATE tasks SET
     (title, content, deadline_at)
     VALUES
-    (:title, :content, :deadline_at)');
+    (:title, :content, :deadline_at) WHERE id = :id');
 
     $statement->bindParam(':title', $title, PDO::PARAM_STR);
     $statement->bindParam(':content', $content, PDO::PARAM_STR);
     $statement->bindParam(':deadline_at', $deadline_at, PDO::PARAM_STR);
+    $statement->bindParam(':id', $task_id, PDO::PARAM_INT);
+
 
     $statement->execute();
-    redirect('/individual_list.php?id=' . $list_id);
 }
 redirect('/');
