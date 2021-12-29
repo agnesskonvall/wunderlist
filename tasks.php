@@ -13,7 +13,7 @@
                     <a> <?= $task['content'] ?> </a>
 
                     <button>
-                        <a href="/individual_tasks.php?id=<?= $task['id']; ?>">Update </a>
+                        <a href="/individual_task.php?id=<?= $task['id']; ?>">Update </a>
                     </button>
                     <button>
                         <a href="/app/tasks/delete.php?id=<?= $task['id']; ?>">Delete </a>

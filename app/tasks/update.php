@@ -38,7 +38,6 @@ if ($_POST['deadline']) {
 }
 
 if ($deadline_at) {
-
     $statement = $database->prepare('UPDATE tasks SET
     deadline_at = :deadline_at WHERE id = :id');
 
