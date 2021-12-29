@@ -17,4 +17,3 @@ if (isset($_GET['id'])) {
 
     redirect('/lists.php');
 }
-redirect('/');

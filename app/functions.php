@@ -50,3 +50,16 @@ function fetch_tasks(object $database)
 
     return $tasks;
 }
+
+function fetch_all_tasks(object $database)
+{
+    $user_id = $_SESSION['user']['id'];
+
+    $statement = $database->prepare("SELECT * from tasks WHERE user_id = :user_id");
+    $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $statement->execute();
+
+    $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $tasks;
+}
