@@ -33,7 +33,7 @@ if ($content) {
 }
 
 //new deadline
-if ($_POST['deadline']) {
+if (isset($_POST['deadline'])) {
     $deadline_at = $_POST['deadline'];
 }
 
@@ -43,8 +43,17 @@ if ($deadline_at) {
 
     $statement->bindParam(':deadline_at', $deadline_at, PDO::PARAM_STR);
     $statement->bindParam(':id', $task_id, PDO::PARAM_INT);
+    $statement->execute();
+}
 
+//complete task
+if (isset($POST['completed_at'])) {
+    $completed_at = date('Y-m-d');
+    $statement = $database->prepare('UPDATE tasks SET
+    completed_at = :completed_at WHERE id = :id');
+    $statement->bindParam(':completed_at', $completed_at, PDO::PARAM_STR);
+    $statement->bindParam(':id', $task_id, PDO::PARAM_INT);
 
     $statement->execute();
 }
-redirect('/');
+redirect('/individual_task.php?id=' . $task_id);

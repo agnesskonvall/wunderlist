@@ -21,8 +21,12 @@ $task_id = $_GET['id'];
         <input type="date" name="deadline" id="deadline" placeholder="Deadline">
         <small class="form-text">Update the deadline for your task.</small>
     </div>
-    <input type="checkbox" id="completed_at" name="completed_at" value="completed_at">
-    <label for="completed_at">Complete task</label>
+    <div class="mb-3">
+        <label for="completed_at"></label>
+        <input type="checkbox" id="completed_at" name="completed_at" value="completed_at">
+        <small class="form-text">Complete task.</small>
+
+    </div>
 
     <button type="submit" class="btn btn-primary">Update task</button>
 
