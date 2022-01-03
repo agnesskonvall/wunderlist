@@ -2,11 +2,23 @@
 require __DIR__ . '/app/autoload.php';
 require __DIR__ . '/views/header.php';
 $task_id = $_GET['id'];
-$status = task_status($task);
+$tasks = fetch_all_tasks($database);
+$user_id = $_SESSION['user']['id'];
+
 
 ?>
 
 <h3>Edit task</h3>
+<?php foreach ($tasks as $task) :
+    if ($task_id === $task['id']) : ?>
+        <h5> <?= $task['title']; ?> </h5>
+        <h6>Deadline at: <?= $task['deadline_at']; ?> </h6>
+
+        <?php $status = task_status($task); ?>
+    <?php endif ?>
+<?php endforeach ?>
+
+
 <form action="/app/tasks/update.php?id=<?= $task_id ?>" method="post">
     <div class="mb-3">
         <label for="title"></label>
@@ -23,7 +35,7 @@ $status = task_status($task);
         <input type="date" name="deadline" id="deadline" placeholder="Deadline">
         <small class="form-text">Update the deadline for your task.</small>
     </div>
-    <label for="completed_at">completed</label>
+    <label for="completed">completed</label>
     <input name="status" id="completed" value="completed" type="radio" <?= $status['completed'] ?>>
     <label for="uncompleted">uncompleted</label>
     <input name="status" id="uncompleted" value="uncompleted" type="radio" <?= $status['uncompleted'] ?>>
@@ -31,4 +43,5 @@ $status = task_status($task);
     <button type="submit" class="btn btn-primary">Update task</button>
 
 </form>
+
 <?php require __DIR__ . '/views/footer.php'; ?>

@@ -46,14 +46,19 @@ if ($deadline_at) {
     $statement->execute();
 }
 
-//complete task
-if (!empty($POST['completed_at']) && $_POST['completed_at'] == 'on') {
+//complete task / uncomplete task
+if ($_POST['status'] === "completed") {
     $completed_at = date('Y-m-d');
-    $statement = $database->prepare('UPDATE tasks SET
-    completed_at = :completed_at WHERE id = :id');
-    $statement->bindParam(':completed_at', $completed_at, PDO::PARAM_STR);
-    $statement->bindParam(':id', $task_id, PDO::PARAM_INT);
 
+    $statement = $database->prepare('UPDATE tasks SET completed_at = :completed_at
+    WHERE id = :id');
+    $statement->bindParam(':id', $task_id, PDO::PARAM_INT);
+    $statement->bindParam(':completed_at', $completed_at, PDO::PARAM_STR);
+    $statement->execute();
+} else {
+    $statement = $database->prepare('UPDATE tasks SET completed_at = null
+    WHERE id = :id');
+    $statement->bindParam(':id', $task_id, PDO::PARAM_INT);
     $statement->execute();
 }
 redirect('/individual_task.php?id=' . $task_id);
