@@ -2,8 +2,10 @@
 require __DIR__ . '/app/autoload.php';
 require __DIR__ . '/views/header.php';
 $task_id = $_GET['id'];
+$status = task_status($task);
 
 ?>
+
 <h3>Edit task</h3>
 <form action="/app/tasks/update.php?id=<?= $task_id ?>" method="post">
     <div class="mb-3">
@@ -21,12 +23,10 @@ $task_id = $_GET['id'];
         <input type="date" name="deadline" id="deadline" placeholder="Deadline">
         <small class="form-text">Update the deadline for your task.</small>
     </div>
-    <div class="mb-3">
-        <label for="completed_at"></label>
-        <input type="checkbox" id="completed_at" name="completed_at" value="completed_at">
-        <small class="form-text">Complete task.</small>
-
-    </div>
+    <label for="completed_at">completed</label>
+    <input name="status" id="completed" value="completed" type="radio" <?= $status['completed'] ?>>
+    <label for="uncompleted">uncompleted</label>
+    <input name="status" id="uncompleted" value="uncompleted" type="radio" <?= $status['uncompleted'] ?>>
 
     <button type="submit" class="btn btn-primary">Update task</button>
 

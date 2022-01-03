@@ -79,3 +79,16 @@ function fetch_all_current_tasks(object $database)
 
     return $current_tasks;
 }
+
+function task_status($task)
+{
+    if (isset($task['completed_at'])) {
+        $status['completed'] = 'checked';
+        $status['uncompleted'] = '';
+    } else {
+        $status['completed'] = '';
+        $status['uncompleted'] = 'checked';
+    }
+
+    return $status;
+}

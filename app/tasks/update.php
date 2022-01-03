@@ -47,7 +47,7 @@ if ($deadline_at) {
 }
 
 //complete task
-if (isset($POST['completed_at'])) {
+if (!empty($POST['completed_at']) && $_POST['completed_at'] == 'on') {
     $completed_at = date('Y-m-d');
     $statement = $database->prepare('UPDATE tasks SET
     completed_at = :completed_at WHERE id = :id');
