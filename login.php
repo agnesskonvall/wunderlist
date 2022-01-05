@@ -17,7 +17,7 @@
             <small class="form-text">Please provide your password (passphrase).</small>
         </div>
 
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button class="submit" type="submit" class="btn btn-primary">Login</button>
     </form>
 </article>
 

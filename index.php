@@ -15,7 +15,7 @@
                 <li>
                     <h6> <?= $task['title'] ?> </h6>
                     <a> <?= $task['content'] ?> </a>
-                    <button>
+                    <button class="update">
                         <a href="/individual_task.php?id=<?= $task['id']; ?>">Update </a>
                     </button>
                 </li>

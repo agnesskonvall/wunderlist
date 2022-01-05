@@ -13,7 +13,7 @@
                     <p> <?= $task['content'] ?> </p> <br>
                     <p>Deadline at: <?= $task['deadline_at']; ?> </p>
 
-                    <button>
+                    <button class="update">
                         <a href="/individual_task.php?id=<?= $task['id']; ?>">Update</a>
                     </button>
 

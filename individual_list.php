@@ -12,6 +12,9 @@ $tasks = fetch_tasks($database);
 foreach ($lists as $list) :
     if ($list['id'] === $id) : ?>
         <h2> <?= $list['title']; ?> </h2>
+        <button class="delete">
+            <a href="/app/lists/delete.php?id=<?= $list['id']; ?>">Delete </a>
+        </button>
     <?php endif ?>
 <?php endforeach ?>
 
@@ -19,10 +22,10 @@ foreach ($lists as $list) :
     if ($user_id && $list_id = $id) : ?>
         <h5> <?= $task['title']; ?> </h5>
         <h6>Deadline: <?= $task['deadline_at']; ?> </h6>
-        <button>
+        <button class="delete">
             <a href="/app/tasks/delete.php?id=<?= $task['id']; ?>">Delete </a>
         </button>
-        <button>
+        <button class="update">
             <a href="/individual_task.php?id=<?= $task['id']; ?>">Update </a>
         </button>
     <?php endif ?>

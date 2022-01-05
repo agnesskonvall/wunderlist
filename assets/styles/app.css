@@ -1,1 +1,52 @@
-/* In this file you can add your custom styles. */
+/* button styling */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+button {
+  margin: 0 auto;
+  font-size: 1rem;
+  padding: 1rem;
+  margin-left: 50px;
+  display: inline;
+  border: 1px solid transparent;
+  color: #ffffff;
+  font-weight: 200;
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+}
+button:hover {
+  background-color: #ffffff;
+}
+
+.update {
+  background-color: lightgreen;
+}
+
+.update:hover {
+  color: lightgreen;
+  border-color: lightgreen;
+}
+
+.delete {
+  background-color: tomato;
+}
+
+.delete:hover {
+  color: tomato;
+  border-color: tomato;
+}
+
+.submit {
+  background-color: lightskyblue;
+}
+
+.submit:hover {
+  color: lightskyblue;
+  border-color: lightskyblue;
+}

@@ -9,11 +9,8 @@
         foreach ($lists as $list) : ?>
             <li>
                 <?= $list['title'] ?>
-                <button>
+                <button class="update">
                     <a href="/individual_list.php?id=<?= $list['id']; ?>">Update </a>
-                </button>
-                <button>
-                    <a href="/app/lists/delete.php?id=<?= $list['id']; ?>">Delete </a>
                 </button>
             </li>
         <?php endforeach ?>
@@ -25,6 +22,6 @@
             <input class="form-control" type="text" name="title" id="title" placeholder="Title" required>
             <small class="form-text">Set a fancy title for your new list!</small>
         </div>
-        <button type="submit" class="btn btn-primary">Create list</button>
+        <button class="submit" type="submit" class="btn btn-primary">Create list</button>
     </form>
 </article>

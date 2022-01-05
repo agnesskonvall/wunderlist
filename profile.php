@@ -20,7 +20,7 @@
         <input class="form-control" type="email" name="email" id="email" placeholder="email" required>
         <small class="form-text">Update your registered email-adress.</small>
     </div>
-    <button type="submit">Change email</button>
+    <button class="submit" type="submit">Change email</button>
 
 </form>
 <form action="app/users/update/password.php" method="post">
@@ -35,7 +35,7 @@
         <input class="form-control" type="password" name="new_password" id="new_password" required>
         <small class="form-text">Update your password.</small>
     </div>
-    <button type="submit">Change password</button>
+    <button class="submit" type="submit">Change password</button>
 </form>
 <div class="mb-3" enctype="multipart/form-data">
     <form action="app/users/avatar/upload.php" method="post">
@@ -44,7 +44,7 @@
             <label for="image">Choose profile picture</label>
             <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png">
         </div>
-        <button type="submit">Upload</button>
+        <button class="submit" type="submit">Upload</button>
 
     </form>
 

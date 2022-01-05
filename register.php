@@ -28,7 +28,7 @@
             <input class="form-control" type="password" name="password" id="password" required>
             <small class="form-text">Please provide your wanted password (passphrase).</small>
         </div>
-        <button type="submit" class="btn btn-primary">Register</button>
+        <button class="submit" type="submit" class="btn btn-primary">Register</button>
     </form>
 </article>
 
