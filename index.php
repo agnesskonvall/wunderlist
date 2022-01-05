@@ -5,21 +5,18 @@
 
 <article>
     <h1><?php echo $config['title']; ?></h1>
-    <p>This is the home page.</p>
-    <h4>Due today - <?= date('Y-m-d') ?></h4>
+    <p>Welcome to agenda. This is your to do-list for today.</p>
     <ul>
         <?php
         $current_tasks = fetch_all_current_tasks($database); ?>
         <?php if ($current_tasks) : ?>
+            <h4>Due today - <?= date('Y-m-d') ?></h4>
             <?php foreach ($current_tasks as $task) : ?>
                 <li>
                     <h6> <?= $task['title'] ?> </h6>
                     <a> <?= $task['content'] ?> </a>
                     <button>
                         <a href="/individual_task.php?id=<?= $task['id']; ?>">Update </a>
-                    </button>
-                    <button>
-                        <a href="/app/tasks/delete.php?id=<?= $task['id']; ?>">Delete </a>
                     </button>
                 </li>
             <?php endforeach ?>

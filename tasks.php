@@ -10,14 +10,13 @@
             <?php if ($_SESSION['user']['id']) : ?>
                 <li>
                     <h6> <?= $task['title'] ?> </h6>
-                    <a> <?= $task['content'] ?> </a>
+                    <p> <?= $task['content'] ?> </p> <br>
+                    <p>Deadline at: <?= $task['deadline_at']; ?> </p>
 
                     <button>
-                        <a href="/individual_task.php?id=<?= $task['id']; ?>">Update </a>
+                        <a href="/individual_task.php?id=<?= $task['id']; ?>">Update</a>
                     </button>
-                    <button>
-                        <a href="/app/tasks/delete.php?id=<?= $task['id']; ?>">Delete </a>
-                    </button>
+
                 </li>
             <?php endif ?>
         <?php endforeach ?>

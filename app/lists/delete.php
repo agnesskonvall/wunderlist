@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-/// i tried with a innerjoin but just got errors, this is that code: $statement = $database->prepare("DELETE lists, tasks
-///FROM lists INNER JOIN tasks ON tasks.list_id = lists.id WHERE user_id = :user_id AND list.id = :id");
-
-
 if (isset($_GET['id'])) {
     $list_id = $_GET['id'];
     $user_id = $_SESSION['user']['id'];

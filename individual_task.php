@@ -15,6 +15,9 @@ $user_id = $_SESSION['user']['id'];
         <h6>Deadline at: <?= $task['deadline_at']; ?> </h6>
 
         <?php $status = task_status($task); ?>
+        <button>
+            <a href="/app/tasks/delete.php?id=<?= $task['id']; ?>">Delete </a>
+        </button>
     <?php endif ?>
 <?php endforeach ?>
 
