@@ -69,3 +69,9 @@ button:hover {
   color: lightskyblue;
   border-color: lightskyblue;
 }
+/* img styling */
+
+.profile_picture {
+  width: 50px;
+  height: 40px;
+}
