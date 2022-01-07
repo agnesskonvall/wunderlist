@@ -10,13 +10,11 @@
             <?php if ($_SESSION['user']['id']) : ?>
                 <li>
                     <h6> <?= $task['title'] ?> </h6>
-                    <p> <?= $task['content'] ?> </p> <br>
+                    <p> <?= $task['content'] ?> </p>
                     <p>Deadline at: <?= $task['deadline_at']; ?> </p>
-
                     <button class="update">
                         <a href="/individual_task.php?id=<?= $task['id']; ?>">Update</a>
                     </button>
-
                 </li>
             <?php endif ?>
         <?php endforeach ?>

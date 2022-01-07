@@ -36,7 +36,7 @@ function fetch_lists(object $database)
     return $lists;
 }
 
-function fetch_tasks(object $database)
+function fetch_tasks(PDO $database)
 {
     $user_id = $_SESSION['user']['id'];
     $list_id = $_GET['id'];
@@ -51,7 +51,7 @@ function fetch_tasks(object $database)
     return $tasks;
 }
 
-function fetch_all_tasks(object $database)
+function fetch_all_tasks(PDO $database)
 {
     $user_id = $_SESSION['user']['id'];
 
@@ -64,7 +64,7 @@ function fetch_all_tasks(object $database)
     return $tasks;
 }
 
-function fetch_all_current_tasks(object $database)
+function fetch_all_current_tasks(PDO $database)
 {
     $user_id = $_SESSION['user']['id'];
     $deadline_at = date('Y-m-d');
@@ -91,4 +91,22 @@ function task_status($task)
     }
 
     return $status;
+}
+
+function get_image_url(PDO $database)
+{
+    $user_id = $_SESSION['user']['id'];
+
+    $statement = $database->prepare("SELECT image_url FROM users WHERE id = :id");
+    $statement->bindParam(':id', $user_id, PDO::PARAM_INT);
+
+    $statement->execute();
+    $image = $statement->fetch(PDO::FETCH_ASSOC);
+    $image_url = $image['image_url'];
+
+    if ($image_url === null) {
+        return '/uploads/placeholder.jpeg';
+    }
+
+    return '/uploads/' . $image_url;
 }

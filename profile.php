@@ -3,51 +3,56 @@
 
 <a>Welcome to your profile, <?php echo welcome(); ?></a>
 
+<div>
+    <?php $image_url = get_image_url($database); ?>
+    <div class="profile-picture-container">
+        <img src="<?= $image_url; ?>" alt="A placeholder image for user that does not have a profile picture uploaded.">
+    </div>
 
-<?php if (isset($_SESSION['errors'])) : ?>
-    <?php foreach ($_SESSION['errors'] as $error) : ?>
-        <div class="error">
-            <?php echo $error; ?>
+    <?php if (isset($_SESSION['errors'])) : ?>
+        <?php foreach ($_SESSION['errors'] as $error) : ?>
+            <div class="error">
+                <?php echo $error; ?>
+            </div>
+        <?php endforeach; ?>
+        <?php unset($_SESSION['errors']) ?>
+    <?php endif; ?>
+
+    <form action="app/users/update/email.php" method="post">
+
+        <div class="mb-3">
+            <label for="email">Email</label>
+            <input class="form-control" type="email" name="email" id="email" placeholder="email" required>
+            <small class="form-text">Update your registered email-adress.</small>
         </div>
-    <?php endforeach; ?>
-    <?php unset($_SESSION['errors']) ?>
-<?php endif; ?>
-
-<form action="app/users/update/email.php" method="post">
-
-    <div class="mb-3">
-        <label for="email">Email</label>
-        <input class="form-control" type="email" name="email" id="email" placeholder="email" required>
-        <small class="form-text">Update your registered email-adress.</small>
-    </div>
-    <button class="submit" type="submit">Change email</button>
-
-</form>
-<form action="app/users/update/password.php" method="post">
-
-    <div class="mb-3">
-        <label for="password">Old password</label>
-        <input class="form-control" type="password" name="password" id="password" required>
-        <small class="form-text">Enter your current password.</small>
-    </div>
-    <div class="mb-3">
-        <label for="new_password">New password</label>
-        <input class="form-control" type="password" name="new_password" id="new_password" required>
-        <small class="form-text">Update your password.</small>
-    </div>
-    <button class="submit" type="submit">Change password</button>
-</form>
-<div class="mb-3" enctype="multipart/form-data">
-    <form action="app/users/avatar/upload.php" method="post">
-
-        <div>
-            <label for="image">Choose profile picture</label>
-            <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png">
-        </div>
-        <button class="submit" type="submit">Upload</button>
+        <button class="submit" type="submit">Change email</button>
 
     </form>
+    <form action="app/users/update/password.php" method="post">
+
+        <div class="mb-3">
+            <label for="password">Old password</label>
+            <input class="form-control" type="password" name="password" id="password" required>
+            <small class="form-text">Enter your current password.</small>
+        </div>
+        <div class="mb-3">
+            <label for="new_password">New password</label>
+            <input class="form-control" type="password" name="new_password" id="new_password" required>
+            <small class="form-text">Update your password.</small>
+        </div>
+        <button class="submit" type="submit">Change password</button>
+    </form>
+    <div class="mb-3" enctype="multipart/form-data">
+        <form action="app/users/avatar/upload.php" method="post">
+
+            <div>
+                <label for="image">Choose profile picture</label>
+                <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png">
+            </div>
+            <button class="submit" type="submit">Upload</button>
+
+        </form>
 
 
 
-    <?php require __DIR__ . '/views/footer.php'; ?>
+        <?php require __DIR__ . '/views/footer.php'; ?>

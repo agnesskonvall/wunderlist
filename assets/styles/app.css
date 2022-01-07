@@ -1,3 +1,22 @@
+body {
+  display: flexbox;
+}
+
+.navbar-nav {
+  align-items: row;
+  align-content: row;
+  justify-content: row;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.nav-item {
+  display: inline;
+  line-break: none;
+}
+
 /* button styling */
 a {
   text-decoration: none;
@@ -11,9 +30,9 @@ a:hover {
 button {
   margin: 0 auto;
   font-size: 1rem;
-  padding: 1rem;
+  padding: 0.5rem;
   margin-left: 50px;
-  display: inline;
+  display: inline block;
   border: 1px solid transparent;
   color: #ffffff;
   font-weight: 200;

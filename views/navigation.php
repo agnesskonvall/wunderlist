@@ -12,14 +12,9 @@
         <?php if (logged_in()) : ?>
             <li class="nav-item">
                 <a class="nav-link" href="/lists.php">Lists</a>
-                <ul>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/overview.php">Overview</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/tasks.php">Tasks</a>
-                    </li>
-                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/tasks.php">Tasks</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/profile.php">Profile</a>
