@@ -3,9 +3,9 @@ body {
 }
 
 .navbar-nav {
-  align-items: row;
-  align-content: row;
-  justify-content: row;
+  overflow: auto;
+  display: flex;
+  display: inline-block;
 }
 
 ul {
@@ -13,8 +13,9 @@ ul {
 }
 
 .nav-item {
-  display: inline;
   line-break: none;
+  display: inline-block;
+  padding: 5px;
 }
 
 /* button styling */

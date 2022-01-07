@@ -13,7 +13,7 @@ foreach ($lists as $list) :
     if ($list['id'] === $id) : ?>
         <h2> <?= $list['title']; ?> </h2>
         <button class="delete">
-            <a href="/app/lists/delete.php?id=<?= $list['id']; ?>">Delete </a>
+            <a href="/app/lists/delete.php?id=<?= $list['id']; ?>">Delete list</a>
         </button>
     <?php endif ?>
 <?php endforeach ?>
