@@ -20,6 +20,7 @@ if (isset($_POST['email'], $_POST['password'])) {
             "id" => $user['id'],
             "name" => $user['username'],
             "email" => $user['email'],
+            "image_url" => $user['image_url']
         ];
         redirect('/index.php');
     }
