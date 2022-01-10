@@ -1,12 +1,13 @@
-INSERT MANDATORY GIF
+![To do list NOTHING](https://media.giphy.com/media/3oKHWtXlzTHeuVewtq/giphy.gif)
+# agenda.
 
-# Project Title
-
-Text about the project and why it exists. This would also be a great place to link the project online.
+agenda. is a to do-list website made for making life easier. Take control of your life and your accomplishments with to do-lists!
 
 # Installation
 
-Add the installation instructions.
+1. Download PHP through Homebrew using the command "brew install php".
+2. Clone repo from GitHub.
+3. Run PHP localhost from terminal (PHP -S localhost:8000) from root folder.
 
 # Code Review
 
