@@ -10,9 +10,9 @@
             <?php if ($_SESSION['user']['id']) : ?>
                 <li>
                     <h6> <?= $task['title'] ?> </h6>
-                    <p> <?= $task['content'] ?> </p>
-                    <p>Deadline at: <?= $task['deadline_at']; ?> </p>
-                    <button class="update">
+                    <p>Description: <?= $task['content'] ?> <br>
+                        Deadline at: <?= $task['deadline_at']; ?> </p>
+                    <button class="update taskbutton">
                         <a href="/individual_task.php?id=<?= $task['id']; ?>">Update</a>
                     </button>
                 </li>

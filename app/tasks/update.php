@@ -14,9 +14,11 @@ if (isset($_POST['title'])) {
 }
 
 if ($title) {
-    $statement = $database->prepare('UPDATE tasks SET title = :title WHERE id = :id');
+    $statement = $database->prepare('UPDATE tasks SET title = :title WHERE id = :id AND user_id = :user_id');
     $statement->bindParam(':title', $title, PDO::PARAM_STR);
     $statement->bindParam(':id', $task_id, PDO::PARAM_INT);
+    $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+
     $statement->execute();
 }
 //new content
@@ -26,9 +28,11 @@ if (isset($_POST['content'])) {
 }
 
 if ($content) {
-    $statement = $database->prepare('UPDATE tasks SET content = :content WHERE id = :id');
+    $statement = $database->prepare('UPDATE tasks SET content = :content WHERE id = :id AND user_id = :user_id');
     $statement->bindParam(':content', $content, PDO::PARAM_STR);
     $statement->bindParam(':id', $task_id, PDO::PARAM_INT);
+    $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+
     $statement->execute();
 }
 
@@ -39,10 +43,12 @@ if (isset($_POST['deadline'])) {
 
 if ($deadline_at) {
     $statement = $database->prepare('UPDATE tasks SET
-    deadline_at = :deadline_at WHERE id = :id');
+    deadline_at = :deadline_at WHERE id = :id AND user_id = :user_id');
 
     $statement->bindParam(':deadline_at', $deadline_at, PDO::PARAM_STR);
     $statement->bindParam(':id', $task_id, PDO::PARAM_INT);
+    $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+
     $statement->execute();
 }
 
@@ -51,14 +57,18 @@ if ($_POST['status'] === "completed") {
     $completed_at = date('Y-m-d');
 
     $statement = $database->prepare('UPDATE tasks SET completed_at = :completed_at
-    WHERE id = :id');
+    WHERE id = :id AND user_id = :user_id');
     $statement->bindParam(':id', $task_id, PDO::PARAM_INT);
     $statement->bindParam(':completed_at', $completed_at, PDO::PARAM_STR);
+    $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+
     $statement->execute();
 } else {
     $statement = $database->prepare('UPDATE tasks SET completed_at = null
-    WHERE id = :id');
+    WHERE id = :id AND user_id = :user_id');
     $statement->bindParam(':id', $task_id, PDO::PARAM_INT);
+    $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+
     $statement->execute();
 }
 redirect('/individual_task.php?id=' . $task_id);

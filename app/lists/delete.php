@@ -18,5 +18,5 @@ if (isset($_GET['id'])) {
     $statement->bindParam(':id', $list_id, PDO::PARAM_INT);
     $statement->execute();
 
-    redirect('/lists.php');
+    redirect('/individual_list.php?id=' . $list_id);
 }

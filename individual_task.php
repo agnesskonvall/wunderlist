@@ -13,11 +13,7 @@ $user_id = $_SESSION['user']['id'];
     if ($task_id === $task['id']) : ?>
         <h5> <?= $task['title']; ?> </h5>
         <h6>Deadline at: <?= $task['deadline_at']; ?> </h6>
-
         <?php $status = task_status($task); ?>
-
-
-
         <form action="/app/tasks/update.php?id=<?= $task_id ?>" method="post">
             <div class="mb-3">
                 <label for="title"></label>
@@ -42,8 +38,9 @@ $user_id = $_SESSION['user']['id'];
             <button class="update" type="submit" class="btn btn-primary">Update task</button>
 
         </form>
+        <br>
         <button class="delete">
-            <a href="/app/tasks/delete.php?id=<?= $task['id']; ?>">Delete </a>
+            <a href="/app/tasks/delete.php?id=<?= $task['id']; ?>" onclick="return confirm('Are you sure you want to remove the task?');">Delete task</a>
         </button>
     <?php endif ?>
 <?php endforeach ?>

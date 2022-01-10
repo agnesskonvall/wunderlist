@@ -6,6 +6,7 @@
     <img class="profile_picture" src="<?= $image_url; ?>" alt="Profile picture">
 </div>
 
+
 <a>Welcome to your profile, <?php echo welcome(); ?></a>
 
 <form action="app/users/update/email.php" method="post">

@@ -11,10 +11,10 @@
             <ul>
                 <?php foreach ($current_tasks as $task) : ?>
                     <li>
-                        <h6> <?= $task['title'] ?> </h6>
-                        <a> <?= $task['content'] ?> </a>
+                        <h5> <?= $task['title'] ?> </h5><br>
+                        <a> Description: <?= $task['content'] ?> </a> <br>
                         <button class="update">
-                            <a href="/individual_task.php?id=<?= $task['id']; ?>">Update </a>
+                            <a href="/individual_task.php?id=<?= $task['id']; ?>">Update task</a>
                         </button>
                     </li>
                 <?php endforeach ?>
@@ -28,5 +28,9 @@
         <p>This is for all you busy-bodies out there. Keep track of what you need to do and do it!</p>
     </div>
 <?php endif ?>
+<br><br>
+<div class="completed">
+    <p>Can you believe you completed <?= fetch_all_completed_tasks($database); ?> tasks already? You're doing amazing sweetie!</p>
+</div>
 
 <?php require __DIR__ . '/views/footer.php';
