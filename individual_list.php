@@ -16,7 +16,8 @@ foreach ($lists as $list) :
 <?php endforeach ?>
 
 <?php foreach ($tasks as $task) :
-    if ($user_id && $list_id = $id) : ?> <br>
+    if ($user_id && $list_id = $id) : ?>
+        <br>
         <h5>Task: <?= $task['title']; ?> </h5>
         <h6>Deadline: <?= $task['deadline_at']; ?> </h6>
         <button class="update">
