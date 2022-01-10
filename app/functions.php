@@ -92,7 +92,20 @@ function task_status($task)
 
     return $status;
 }
+function fetch_all_completed_tasks(PDO $database)
+{
+    $user_id = $_SESSION['user']['id'];
 
+    $statement = $database->prepare("SELECT * from tasks WHERE user_id = :user_id AND completed_at =/= null");
+    $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $statement->bindParam(':deadline_at', $deadline_at, PDO::PARAM_STR);
+
+    $statement->execute();
+
+    $completed_tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $completed_tasks;
+}
 function get_image_url(PDO $database)
 {
     $user_id = $_SESSION['user']['id'];

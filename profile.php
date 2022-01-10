@@ -1,12 +1,12 @@
 <?php require __DIR__ . '/app/autoload.php'; ?>
 <?php require __DIR__ . '/views/header.php'; ?>
 
-<a>Welcome to your profile, <?php echo welcome(); ?></a>
-
 <div>
     <?php $image_url = get_image_url($database); ?>
-    <img class="profile_picture" src="<?= $image_url; ?>" alt="A placeholder image for user that does not have a profile picture uploaded.">
+    <img class="profile_picture" src="<?= $image_url; ?>" alt="Profile picture">
 </div>
+
+<a>Welcome to your profile, <?php echo welcome(); ?></a>
 
 <form action="app/users/update/email.php" method="post">
 
@@ -16,7 +16,7 @@
         <small class="form-text">Update your registered email-adress.</small>
     </div>
     <button class="submit" type="submit">Change email</button>
-
+    <br><br>
 </form>
 <form action="app/users/update/password.php" method="post">
 
@@ -28,15 +28,16 @@
     <div class="mb-3">
         <label for="new_password">New password</label>
         <input class="form-control" type="password" name="new_password" id="new_password" required>
-        <small class="form-text">Update your password.</small>
+        <small class="form-text">Enter your new password.</small>
+        <button class="submit" type="submit">Change password</button>
     </div>
-    <button class="submit" type="submit">Change password</button>
 </form>
+<br>
 <div>Change your profile picture</div>
 <form action="/app/users/avatar/upload.php" method="post" enctype="multipart/form-data">
     <label for="image">Upload your avatar image in PNG/JPG format</label>
     <input type="file" name="image" id="image" accept=".png, .jpg, .jpeg">
-    <button type="submit">Upload image</button>
+    <button class="submit" type="submit">Upload image</button>
 </form>
 
 
