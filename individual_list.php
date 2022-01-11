@@ -20,6 +20,7 @@ foreach ($lists as $list) :
         <br>
         <h5>Task: <?= $task['title']; ?> </h5>
         <h6>Deadline: <?= $task['deadline_at']; ?> </h6>
+        <h6> Completed at: <?= $task['completed_at']; ?> </h6>
         <button class="update">
             <a href="/individual_task.php?id=<?= $task['id']; ?>">Update task</a>
         </button>

@@ -21,7 +21,18 @@
             </ul>
         <?php else : ?>
             <h3>Looks like you have the day off!</h3>
+            <br>
+            How about making a new list? Let's get this bread!
+            <form action="app/lists/create.php" method="post">
+                <div class="mb-3">
+                    <label for="title"></label>
+                    <input class="form-control" type="text" name="title" id="title" placeholder="Title" required>
+                    <small class="form-text">Set a fancy title for your new list!</small>
+                </div>
+                <button class="submit" type="submit" class="btn btn-primary">Create list</button>
+            </form>
         <?php endif ?>
+        <br>
         <div class="completed">
             <p>Can you believe you completed <?= fetch_all_completed_tasks($database); ?> tasks already? You're doing amazing sweetie!</p>
         </div>

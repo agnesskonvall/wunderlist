@@ -10,9 +10,10 @@
             <li>
                 <?= $list['title'] ?>
                 <button class="update">
-                    <a href="/individual_list.php?id=<?= $list['id']; ?>">Update </a>
+                    <a href="/individual_list.php?id=<?= $list['id']; ?>">View list</a>
                 </button>
             </li>
+            <br>
         <?php endforeach ?>
     </ul>
     <h2>Create new list</h2>

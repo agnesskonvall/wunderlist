@@ -35,6 +35,9 @@ h5 {
 
 .completed {
   width: 200px;
+  bottom: 20px;
+  right: 500px;
+  display: flex;
 }
 
 /* button styling */
