@@ -41,6 +41,10 @@
     <div>
         <p>This is for all you busy-bodies out there. Keep track of what you need to do and do it!</p>
     </div>
+    <ul><b>to-do list</b>
+        <li style="font-style: italic;">noun </li>
+        <li>a list of tasks that need to be completed, typically organized in order of priority.</li>
+    </ul>
 <?php endif ?>
 <br><br>
 

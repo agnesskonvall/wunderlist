@@ -107,7 +107,7 @@ button:hover {
   margin: 10px;
   width: 45%;
 }
-
+/* styling for scroll to top-function*/
 #top {
   display: none;
   position: fixed;
