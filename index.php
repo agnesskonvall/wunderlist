@@ -22,6 +22,9 @@
         <?php else : ?>
             <h3>Looks like you have the day off!</h3>
         <?php endif ?>
+        <div class="completed">
+            <p>Can you believe you completed <?= fetch_all_completed_tasks($database); ?> tasks already? You're doing amazing sweetie!</p>
+        </div>
     </article>
 <?php else : ?>
     <div>
@@ -29,8 +32,6 @@
     </div>
 <?php endif ?>
 <br><br>
-<div class="completed">
-    <p>Can you believe you completed <?= fetch_all_completed_tasks($database); ?> tasks already? You're doing amazing sweetie!</p>
-</div>
 
+<button onclick="topFunction()" id="top" title="Go to top">Scroll to top</button>
 <?php require __DIR__ . '/views/footer.php';

@@ -25,3 +25,4 @@
         <button class="submit" type="submit" class="btn btn-primary">Create list</button>
     </form>
 </article>
+<button onclick="topFunction()" id="top" title="Go to top">Scroll to top</button>

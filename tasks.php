@@ -11,11 +11,16 @@
                 <li>
                     <h6> <?= $task['title'] ?> </h6>
                     <p>Description: <?= $task['content'] ?> <br>
-                        Deadline at: <?= $task['deadline_at']; ?> </p>
+                        Deadline: <?= $task['deadline_at']; ?> </p>
                     <button class="update taskbutton">
                         <a href="/individual_task.php?id=<?= $task['id']; ?>">Update</a>
                     </button>
+                    <br>
+                    <br>
                 </li>
             <?php endif ?>
         <?php endforeach ?>
     </ul>
+    <button onclick="topFunction()" id="top" title="Go to top">Scroll to top</button>
+
+    <?php require __DIR__ . '/views/footer.php';

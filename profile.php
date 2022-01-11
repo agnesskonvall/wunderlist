@@ -41,6 +41,7 @@
     <button class="submit" type="submit">Upload image</button>
 </form>
 
+<button onclick="topFunction()" id="top" title="Go to top">Scroll to top</button>
 
 
 <?php require __DIR__ . '/views/footer.php'; ?>
