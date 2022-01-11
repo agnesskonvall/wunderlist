@@ -2,10 +2,10 @@
 <?php require __DIR__ . '/views/header.php'; ?>
 
 <article>
-    <h1>Your tasks</h1>
+    <h1>Your uncompleted tasks</h1>
     <ul>
         <?php
-        $tasks = fetch_all_tasks($database);
+        $tasks = fetch_all_uncompleted_tasks($database);
         foreach ($tasks as $task) : ?>
             <?php if ($_SESSION['user']['id']) : ?>
                 <li>

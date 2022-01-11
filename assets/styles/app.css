@@ -64,6 +64,7 @@ button:hover {
 
 .update {
   background-color: lightgreen;
+  display: inline;
 }
 
 .update:hover {
