@@ -93,6 +93,21 @@ button:hover {
   border-color: lightskyblue;
 }
 
+.back {
+  color: black;
+}
+
+.button_wrapper {
+  display: flex;
+  flex: 30%;
+  align-items: space-between;
+}
+
+#wrapped {
+  margin: 10px;
+  width: 45%;
+}
+
 #top {
   display: none;
   position: fixed;
@@ -116,16 +131,31 @@ button:hover {
 /* img styling */
 
 .profile_picture {
-  width: 50px;
-  height: 40px;
+  width: 100px;
+  height: 80px;
   display: inline;
   border-radius: 10%;
+}
+
+.profile_wrapper {
+  display: flex;
+  flex: 50%;
+  flex-direction: column;
+}
+
+.form_wrapper {
+  display: flex;
+  flex: 50%;
+  flex-direction: column;
+}
+
+.wrapper {
+  display: flex;
 }
 
 @media only screen and (min-width: 769px) {
   .profile_picture {
     width: 150px;
     height: 100px;
-    margin-left: 450px;
   }
 }

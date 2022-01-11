@@ -34,14 +34,15 @@ $user_id = $_SESSION['user']['id'];
             <input name="status" id="completed" value="completed" type="radio" <?= $status['completed'] ?>>
             <label for="uncompleted">uncompleted</label>
             <input name="status" id="uncompleted" value="uncompleted" type="radio" <?= $status['uncompleted'] ?>>
-
-            <button class="update" type="submit" class="btn btn-primary">Update task</button>
-
+            <div class="button_wrapper">
+                <button class="update" id="wrapped" type="submit" class="btn btn-primary">Update task</button>
         </form>
         <br>
-        <button class="delete">
+        <button class="delete" id="wrapped">
             <a href="/app/tasks/delete.php?id=<?= $task['id']; ?>" onclick="return confirm('Are you sure you want to remove the task?');">Delete task</a>
         </button>
+        <button class="back" id="wrapped"><a href="/individual_list.php?id=<?= $task['list_id']; ?>">Back to list
+        </button> </div>
     <?php endif ?>
 <?php endforeach ?>
 <?php require __DIR__ . '/views/footer.php'; ?>

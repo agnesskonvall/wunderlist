@@ -28,6 +28,7 @@ foreach ($lists as $list) :
             <a href="/app/tasks/delete.php?id=<?= $task['id']; ?>" onclick="return confirm('Are you sure you want to remove the task?');">Delete task</a>
         </button>
         <br>
+
     <?php endif ?>
 <?php endforeach ?>
 <br>
@@ -65,6 +66,8 @@ foreach ($lists as $list) :
     <button class="submit" type="submit">Add task</button>
 
 </form>
+<br>
+<button class="back"><a href="lists.php">Back to all lists</button>
 
 
 
