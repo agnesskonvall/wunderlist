@@ -39,6 +39,18 @@
         </form>
     </div>
 </div>
+<hr>
+<form action="/app/users/update/deleteuser.php" method="post">
+
+    <label for="delete_user">
+        Delete account
+    </label>
+
+    <input class="form-control" type="password" name="delete_user" required>
+    <label for="delete_user"><small class="form-text">Enter password to delete your account</small></label>
+    <div><button class="btn-danger" type="submit" onclick="return confirm('Are you sure? Your account along with all your lists and tasks will be deleted forever. This cannot be undone.')">Delete my account</button>
+</form>
+</div>
 <button onclick="topFunction()" id="top" title="Go to top">Scroll to top</button>
 
 
