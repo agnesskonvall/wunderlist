@@ -138,3 +138,36 @@ function get_image_url(PDO $database)
 
     return '/uploads/' . $image_url;
 }
+
+function fetch_search_results(PDO $database)
+{
+    $user_id = $_SESSION['user']['id'];
+    if (isset($_POST['search'])) {
+        $trimmed_search = trim($_POST['search']);
+        //the following string is to fix a bug where if you place < > on either side of the search term, all the users tasks are returned. I fixed this by removing them from the start and end of the string.
+        $remove_left_tag = ltrim($trimmed_search, '<');
+        $remove_right_tag = rtrim($remove_left_tag, '>');
+        $sanitized_search = filter_var($remove_right_tag, FILTER_SANITIZE_STRING);
+        $search = "%" . ($sanitized_search) . "%";
+        $statement = $database->prepare(
+            "SELECT tasks.id, tasks.deadline_at, tasks.list_id, tasks.user_id, tasks.completed_at, tasks.title, tasks.content, lists.title
+            AS list_title
+            FROM tasks
+            INNER JOIN lists
+            ON tasks.list_id = lists.id
+            WHERE tasks.user_id = :user_id
+            AND (tasks.title
+            LIKE :search
+            OR content
+            LIKE :search
+            OR list_title
+            LIKE :search)"
+        );
+
+        $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+        $statement->bindParam(':search', $search, PDO::PARAM_STR);
+        $statement->execute();
+        $search_result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $search_result;
+    }
+}

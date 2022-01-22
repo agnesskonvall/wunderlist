@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light d-flex">
     <a class="navbar-brand" href="#"><?php echo $config['title']; ?></a>
 
     <ul class="navbar-nav">
@@ -29,4 +29,17 @@
         <?php endif ?>
 
     </ul>
+    <?php if (logged_in()) : ?>
+        <div class="ml-auto">
+            <form action="/searchresults.php" method="POST" class="width">
+                <div class="input-group mb-3">
+
+                    <input type="text" class="form-control" name="search" placeholder="Search for a List or Task" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn-secondary" type="submit">Search</button>
+                    </div>
+                </div>
+        </div>
+        </form>
+    <?php endif ?>
 </nav>
