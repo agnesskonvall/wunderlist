@@ -35,7 +35,7 @@ Tested by the following people:
 
 # Wunderlist+
 
-Emma Ramstedt:https://github.com/Deliciaes added:
+[Emma Ramstedt](https://github.com/Deliciaes) added:
 
 1. Feature for deleting user along with all lists and tasks
 2. Search feature
